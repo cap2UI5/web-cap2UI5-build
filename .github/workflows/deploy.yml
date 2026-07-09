@@ -1,0 +1,49 @@
+name: deploy pages
+
+# Deploy this repo's static cap2UI5 browser site to GitHub Pages.
+#
+# The site itself is published here by the `build web` workflow in
+# cap2UI5/web-cap2UI5, which pushes one commit per deployment to `main`.
+# This workflow turns each of those pushes into an actual GitHub Pages
+# deployment: it uploads the repo contents as a Pages artifact and calls
+# the official deploy-pages action.
+#
+# Requires the repository's Pages source to be set to "GitHub Actions"
+# (Settings → Pages → Build and deployment → Source → GitHub Actions).
+# The whole repo is the site root — index.html, the bundle and the webapp
+# sit at the top level, and .nojekyll disables Jekyll processing.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Grant the token the permissions the Pages deployment needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Serialize deployments; don't cancel an in-flight one, so a rapid series
+# of build pushes still deploys the latest completed run.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      - name: upload site as pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload the repo root — this IS the built site.
+          path: .
+      - name: deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
