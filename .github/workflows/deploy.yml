@@ -3,7 +3,7 @@ name: deploy pages
 # Deploy this repo's static cap2UI5 browser site to GitHub Pages.
 #
 # The site itself is published here by the `build web` workflow in
-# cap2UI5/web-cap2UI5, which pushes one commit per deployment to `main`.
+# cap2UI5/builder-cap2UI5-web, which pushes one commit per deployment to `main`.
 # This workflow turns each of those pushes into an actual GitHub Pages
 # deployment: it uploads the repo contents as a Pages artifact and calls
 # the official deploy-pages action.
