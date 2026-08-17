@@ -6,7 +6,7 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "title": "abap2UI5",
+    "title": "cap2UI5 — Browser Playground",
     "description": "Create UI5 apps purely in ABAP",
     "resources": "resources.json",
     "sourceTemplate": {
