@@ -7,7 +7,7 @@
       "version": "0.0.1"
     },
     "title": "cap2UI5 — Browser Playground",
-    "description": "Create UI5 apps purely in ABAP",
+    "description": "Create UI5 apps purely in JavaScript",
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
