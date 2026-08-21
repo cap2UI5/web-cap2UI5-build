@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cap2UI5 — Browser Playground — Samples</title>
+  <style>
+    /* Horizon-ish, in both schemes; no webfont, no CDN — this page must
+       render even when the UI5 CDN the app itself needs is unreachable. */
+    :root {
+      --bg: #f5f6f7; --card: #fff; --line: #d9d9d9;
+      --fg: #1d2d3e; --muted: #556b82; --accent: #0064d9; --code: #eaecee;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1d232a; --card: #24292e; --line: #3a4149;
+        --fg: #eaecee; --muted: #a9b4be; --accent: #7fb1ec; --code: #2d333a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: "72", "72full", Arial, Helvetica, sans-serif; font-size: 0.875rem; line-height: 1.5;
+    }
+    header {
+      background: var(--card); border-bottom: 1px solid var(--line);
+      padding: 0.75rem 1rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
+      position: sticky; top: 0; z-index: 1;
+    }
+    h1 { font-size: 1.125rem; margin: 0; font-weight: 600; }
+    h2 {
+      font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin: 1.5rem 0 0.5rem; font-weight: 600;
+    }
+    main { max-width: 60rem; margin: 0 auto; padding: 0 1rem 4rem; }
+    p.lead { color: var(--muted); margin: 1rem 0 0; }
+    p.note { color: var(--muted); margin: 0 0 0.5rem; font-size: 0.8125rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    input {
+      flex: 1 1 14rem; min-width: 10rem; padding: 0.375rem 0.625rem;
+      border: 1px solid var(--line); border-radius: 0.25rem;
+      background: var(--bg); color: var(--fg); font: inherit;
+    }
+    ul { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 0.25rem; background: var(--card); }
+    li { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: baseline; padding: 0.4rem 0.75rem; border-top: 1px solid var(--line); }
+    li:first-child { border-top: 0; }
+    li[hidden] { display: none; }
+    .run { flex: 1 1 20rem; font-weight: 600; }
+    code { color: var(--muted); background: var(--code); border-radius: 0.1875rem; padding: 0.0625rem 0.3125rem; font-size: 0.75rem; }
+    .links { display: flex; gap: 0.375rem; }
+    .src { font-size: 0.6875rem; letter-spacing: 0.04em; border: 1px solid var(--line); border-radius: 0.1875rem; padding: 0 0.3125rem; color: var(--muted); }
+    .src:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    #empty { color: var(--muted); padding: 1rem 0; }
+    #empty[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>cap2UI5 — Browser Playground</h1>
+    <input id="q" type="search" placeholder="Filter 104 samples — title, class or keyword" autofocus>
+    <a href="./index.html">Open the app</a>
+  </header>
+  <main>
+    <p class="lead">
+      Every sample below runs entirely in this browser tab — the framework and its
+      backend are bundled into the page, so a click just starts the app. Sources:
+      the JavaScript that runs here lives in
+      <a href="https://github.com/cap2UI5/cap2UI5">cap2UI5</a>, the ABAP originals in
+      <a href="https://github.com/abap2UI5/samples">abap2UI5/samples</a>. Or open the <a href="./index.html?app_start=z2ui5_cl_smp_app_000">sample overview app</a>, which is this list running inside the framework.
+    </p>
+    <section>
+      <h2>Basics I</h2>
+      <ul>
+      <li data-find="hello world, the smallest app z2ui5_cl_smp_app_493 basics i hello world smallest first app minimal start here template">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_493">Hello World, the Smallest App</a>
+        <code>z2ui5_cl_smp_app_493</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_493.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_493.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Basics II</h2>
+      <ul>
+      <li data-find="data binding: input and button z2ui5_cl_smp_app_494 basics ii binding _bind model attribute value input button serialize">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_494">Data Binding: Input and Button</a>
+        <code>z2ui5_cl_smp_app_494</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_494.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_494.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Basics III</h2>
+      <ul>
+      <li data-find="lifecycle: init, event, navigated z2ui5_cl_smp_app_495 basics iii lifecycle roundtrip main dispatcher state serialize check_on_init check_on_event check_on_navigated">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_495">Lifecycle: Init, Event, Navigated</a>
+        <code>z2ui5_cl_smp_app_495</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_495.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_495.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Basics IV</h2>
+      <ul>
+      <li data-find="events, views and roundtrips z2ui5_cl_smp_app_004 basics iv roundtrip restart second view uncaught error controller basics">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_004">Events, Views and Roundtrips</a>
+        <code>z2ui5_cl_smp_app_004</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_004.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_004.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Basics V</h2>
+      <ul>
+      <li data-find="the developer tools (ctrl+f12) z2ui5_cl_smp_app_496 basics v developer tools devtools ctrl f12 debug inspect payload previous request response view xml view model source code log error adt export">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_496">The Developer Tools (Ctrl+F12)</a>
+        <code>z2ui5_cl_smp_app_496</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_496.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_496.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Binding</h2>
+      <ul>
+      <li data-find="currency amounts (sap.ui.model.type.currency) z2ui5_cl_smp_app_067 binding amount decimals leading zeros number format">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_067">Currency Amounts (sap.ui.model.type.Currency)</a>
+        <code>z2ui5_cl_smp_app_067</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_067.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_067.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="dynamic table typed at runtime (rtti) z2ui5_cl_smp_app_061 binding generic data reference create data ddic dynamic itab">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_061">Dynamic Table Typed at Runtime (RTTI)</a>
+        <code>z2ui5_cl_smp_app_061</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_061.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_061.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="expression binding, types and composite parts z2ui5_cl_smp_app_027 binding formatter parts conditional regexp visible enabled syntax">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_027">Expression Binding, Types and Composite Parts</a>
+        <code>z2ui5_cl_smp_app_027</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_027.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_027.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="model setsizelimit for large tables (a) z2ui5_cl_smp_app_071 binding combobox jsonmodel size limit large itab 100 entries">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_071">Model setSizeLimit for Large Tables (A)</a>
+        <code>z2ui5_cl_smp_app_071</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_071.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_071.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="single table cell (tab_index) z2ui5_cl_smp_app_144 binding cell input internal table row field level">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_144">Single Table Cell (tab_index)</a>
+        <code>z2ui5_cl_smp_app_144</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_144.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_144.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="structure fields and includes z2ui5_cl_smp_app_166 binding structure component include flat form level">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_166">Structure Fields and INCLUDEs</a>
+        <code>z2ui5_cl_smp_app_166</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_166.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_166.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="types for integer, decimal, date and time z2ui5_cl_smp_app_047 binding type conversion sum amount number field">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_047">Types for Integer, Decimal, Date and Time</a>
+        <code>z2ui5_cl_smp_app_047</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_047.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_047.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Browser</h2>
+      <ul>
+      <li data-find="copy to clipboard (a) z2ui5_cl_smp_app_325 browser clipboard paste copy text area">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_325">Copy to Clipboard (A)</a>
+        <code>z2ui5_cl_smp_app_325</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_325.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_325.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="local and session storage (a,c) z2ui5_cl_smp_app_327 browser localstorage sessionstorage persist store_data offline">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_327">Local and Session Storage (A,C)</a>
+        <code>z2ui5_cl_smp_app_327</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_327.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_327.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="logout from the client (a) z2ui5_cl_smp_app_361 browser logoff signout icf session end fiori launchpad">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_361">Logout from the Client (A)</a>
+        <code>z2ui5_cl_smp_app_361</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_361.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_361.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="open a url in a new tab (a) z2ui5_cl_smp_app_073 browser url window open_new_tab link target">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_073">Open a URL in a New Tab (A)</a>
+        <code>z2ui5_cl_smp_app_073</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_073.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_073.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="open mail, phone and sms links (a) z2ui5_cl_smp_app_316 browser mailto tel sms urlhelper redirect native link">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_316">Open Mail, Phone and SMS Links (A)</a>
+        <code>z2ui5_cl_smp_app_316</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_316.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_316.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="reload the page (a) z2ui5_cl_smp_app_492 browser reload refresh restart location_reload url">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_492">Reload the Page (A)</a>
+        <code>z2ui5_cl_smp_app_492</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_492.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_492.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="set the tab favicon (a) z2ui5_cl_smp_app_491 browser favicon icon tab image data uri">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_491">Set the Tab Favicon (A)</a>
+        <code>z2ui5_cl_smp_app_491</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_491.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_491.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="set the tab title (a) z2ui5_cl_smp_app_125 browser document.title tab caption headline set_title">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_125">Set the Tab Title (A)</a>
+        <code>z2ui5_cl_smp_app_125</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_125.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_125.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="soft keyboard mode on mobile (a) z2ui5_cl_smp_app_352 browser mobile numeric keypad keyboard_set_mode phone input">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_352">Soft Keyboard Mode on Mobile (A)</a>
+        <code>z2ui5_cl_smp_app_352</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_352.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_352.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Control Behaviour</h2>
+      <ul>
+      <li data-find="expand a panel by id (setexpanded) (a) z2ui5_cl_smp_app_448 control behaviour panel collapse expand setexpanded control_by_id whitelisted">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_448">Expand a Panel by ID (setExpanded) (A)</a>
+        <code>z2ui5_cl_smp_app_448</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_448.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_448.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="multiinput with tokens (c) z2ui5_cl_smp_app_078 control behaviour multiinput token tokens suggestion custom control">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_078">MultiInput with Tokens (C)</a>
+        <code>z2ui5_cl_smp_app_078</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_078.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_078.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="open the pdf viewer by id (a) z2ui5_cl_smp_app_449 control behaviour pdfviewer pdf document viewer popup control_by_id whitelisted">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_449">Open the PDF Viewer by ID (A)</a>
+        <code>z2ui5_cl_smp_app_449</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_449.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_449.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="switch navcontainer page by id (a) z2ui5_cl_smp_app_088 control behaviour navcontainer icontabbar icontabheader page switch control_by_id whitelisted">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_088">Switch NavContainer Page by ID (A)</a>
+        <code>z2ui5_cl_smp_app_088</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_088.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_088.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="wizard with steps (a) z2ui5_cl_smp_app_202 control behaviour wizard step branching discardprogress setnextstep control_by_id">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_202">Wizard with Steps (A)</a>
+        <code>z2ui5_cl_smp_app_202</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_202.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_202.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>CSS</h2>
+      <ul>
+      <li data-find="color table cells from the backend z2ui5_cl_smp_app_305 css color background conditional formatting style data attribute">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_305">Color Table Cells from the Backend</a>
+        <code>z2ui5_cl_smp_app_305</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_305.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_305.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="flexbox layouts with custom classes z2ui5_cl_smp_app_255 css flexbox layout responsive navigation tile panel">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_255">FlexBox Layouts with Custom Classes</a>
+        <code>z2ui5_cl_smp_app_255</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_255.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_255.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="ship your own css with the view z2ui5_cl_smp_app_050 css style stylesheet inline html class own design">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_050">Ship Your Own CSS with the View</a>
+        <code>z2ui5_cl_smp_app_050</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_050.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_050.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Device</h2>
+      <ul>
+      <li data-find="camera, take photos (c) z2ui5_cl_smp_app_306 device camera photo picture webcam capture facing mode">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_306">Camera, Take Photos (C)</a>
+        <code>z2ui5_cl_smp_app_306</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_306.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_306.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="device model: phone, tablet, desktop (a) z2ui5_cl_smp_app_445 device sap.ui.device responsive orientation resize media model">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_445">Device Model: Phone, Tablet, Desktop (A)</a>
+        <code>z2ui5_cl_smp_app_445</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_445.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_445.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="frontend info: ui5 version, theme, os, browser z2ui5_cl_smp_app_122 device client info ui5 version theme os user agent device">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_122">Frontend Info: UI5 Version, Theme, OS, Browser</a>
+        <code>z2ui5_cl_smp_app_122</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_122.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_122.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="geolocation from the browser (c) z2ui5_cl_smp_app_120 device gps position latitude longitude altitude location">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_120">Geolocation from the Browser (C)</a>
+        <code>z2ui5_cl_smp_app_120</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_120.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_120.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Event</h2>
+      <ul>
+      <li data-find="control objects in t_arg (facetfilter) z2ui5_cl_smp_app_197 event facetfilter filter object marshalling selected items">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_197">Control Objects in t_arg (FacetFilter)</a>
+        <code>z2ui5_cl_smp_app_197</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_197.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_197.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="extra arguments with t_arg z2ui5_cl_smp_app_167 event argument parameter payload event data fixed value">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_167">Extra Arguments with t_arg</a>
+        <code>z2ui5_cl_smp_app_167</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_167.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_167.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="keyboard shortcuts, ctrl+s (a) z2ui5_cl_smp_app_471 event shortcut hotkey ctrl key combination keyboard_shortcut">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_471">Keyboard Shortcuts, Ctrl+S (A)</a>
+        <code>z2ui5_cl_smp_app_471</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_471.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_471.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="link with preventdefault (a) z2ui5_cl_smp_app_472 event link href default action check_prevent_default">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_472">Link with preventDefault (A)</a>
+        <code>z2ui5_cl_smp_app_472</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_472.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_472.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>File</h2>
+      <ul>
+      <li data-find="download to the browser (a) z2ui5_cl_smp_app_186 file export save base64 attachment xstring document">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_186">Download to the Browser (A)</a>
+        <code>z2ui5_cl_smp_app_186</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_186.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_186.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="upload to the backend (c) z2ui5_cl_smp_app_074 file fileuploader base64 attachment import picture document">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_074">Upload to the Backend (C)</a>
+        <code>z2ui5_cl_smp_app_074</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_074.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_074.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Focus</h2>
+      <ul>
+      <li data-find="focus a table cell by column and row (a) z2ui5_cl_smp_app_421 focus table cell column row aggregation set_focus">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_421">Focus a Table Cell by Column and Row (A)</a>
+        <code>z2ui5_cl_smp_app_421</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_421.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_421.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="jump to the next input on enter (a) z2ui5_cl_smp_app_189 focus cursor enter tab next field form set_focus">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_189">Jump to the Next Input on Enter (A)</a>
+        <code>z2ui5_cl_smp_app_189</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_189.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_189.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="set focus and select text in an input (a) z2ui5_cl_smp_app_133 focus cursor set_focus selection position textfield">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_133">Set Focus and Select Text in an Input (A)</a>
+        <code>z2ui5_cl_smp_app_133</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_133.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_133.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Formatter</h2>
+      <ul>
+      <li data-find="abap date and time strings (dats/tims) z2ui5_cl_smp_app_450 formatter dats tims conversion initial date 00000000 sy-datum">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_450">ABAP Date and Time Strings (DATS/TIMS)</a>
+        <code>z2ui5_cl_smp_app_450</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_450.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_450.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="date object for the datepicker z2ui5_cl_smp_app_457 formatter datepicker datevalue javascript date object iso">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_457">Date Object for the DatePicker</a>
+        <code>z2ui5_cl_smp_app_457</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_457.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_457.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="date objects for the planningcalendar z2ui5_cl_smp_app_456 formatter planningcalendar appointment javascript date object iso">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_456">Date Objects for the PlanningCalendar</a>
+        <code>z2ui5_cl_smp_app_456</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_456.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_456.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="inline icons in a text z2ui5_cl_smp_app_466 formatter icon glyph placeholder text status expandinlineicons">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_466">Inline Icons in a Text</a>
+        <code>z2ui5_cl_smp_app_466</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_466.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_466.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="when not to use one: compute in abap z2ui5_cl_smp_app_453 formatter no formatter computed backend thin frontend prepare">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_453">When Not to Use One: Compute in ABAP</a>
+        <code>z2ui5_cl_smp_app_453</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_453.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_453.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Grid Table</h2>
+      <ul>
+      <li data-find="events on cell level z2ui5_cl_smp_app_160 grid table cell enter row index event grid alv">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_160">Events on Cell Level</a>
+        <code>z2ui5_cl_smp_app_160</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_160.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_160.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="full example with sap.ui.table z2ui5_cl_smp_app_070 grid table grid alv dynamicpage column row action currency search sort filter">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_070">Full Example with sap.ui.table</a>
+        <code>z2ui5_cl_smp_app_070</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_070.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_070.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="keep column filters on refresh (c) z2ui5_cl_smp_app_143 grid table column filter reset refresh uitableext grid alv">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_143">Keep Column Filters on Refresh (C)</a>
+        <code>z2ui5_cl_smp_app_143</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_143.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_143.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>List</h2>
+      <ul>
+      <li data-find="filter and sort the binding from abap (a) z2ui5_cl_smp_app_454 list binding_call getbinding sorter filter follow_up_action">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_454">Filter and Sort the Binding from ABAP (A)</a>
+        <code>z2ui5_cl_smp_app_454</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_454.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_454.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="live filter on the client, no roundtrip (a) z2ui5_cl_smp_app_455 list binding_call live search client side no roundtrip filter">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_455">Live Filter on the Client, No Roundtrip (A)</a>
+        <code>z2ui5_cl_smp_app_455</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_455.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_455.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="standardlistitem, highlight and events z2ui5_cl_smp_app_048 list sap.m.list standardlistitem highlight infostate press selection">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_048">StandardListItem, Highlight and Events</a>
+        <code>z2ui5_cl_smp_app_048</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_048.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_048.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Menu</h2>
+      <ul>
+      <li data-find="full path of the selected item (a) z2ui5_cl_smp_app_473 menu menuitem nested submenu textpath controller path">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_473">Full Path of the Selected Item (A)</a>
+        <code>z2ui5_cl_smp_app_473</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_473.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_473.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="menu button with core:require z2ui5_cl_smp_app_163 menu menubutton menuitem popover messagetoast require module">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_163">Menu Button with core:require</a>
+        <code>z2ui5_cl_smp_app_163</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_163.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_163.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Message</h2>
+      <ul>
+      <li data-find="message model and messagemanager (c) z2ui5_cl_smp_app_467 message messagemanager validation target field state central model">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_467">Message Model and MessageManager (C)</a>
+        <code>z2ui5_cl_smp_app_467</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_467.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_467.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="messagebox from sy, bapiret2 or exception z2ui5_cl_smp_app_008 message t100 message class number exception cx_root error abend">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_008">MessageBox from SY, BAPIRET2 or Exception</a>
+        <code>z2ui5_cl_smp_app_008</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_008.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_008.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="messagebox, types and custom actions z2ui5_cl_smp_app_382 message confirm warning error success information dialog action">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_382">MessageBox, Types and Custom Actions</a>
+        <code>z2ui5_cl_smp_app_382</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_382.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_382.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="messagepopover url policy (a) z2ui5_cl_smp_app_474 message url policy link security validator relative allow deny">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_474">MessagePopover URL Policy (A)</a>
+        <code>z2ui5_cl_smp_app_474</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_474.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_474.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="messagetoast, text and duration z2ui5_cl_smp_app_381 message toast notification duration position animation">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_381">MessageToast, Text and Duration</a>
+        <code>z2ui5_cl_smp_app_381</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_381.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_381.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="messageview and messagepopover (a) z2ui5_cl_smp_app_452 message messagepopover messageitem dialog grouped message list">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_452">MessageView and MessagePopover (A)</a>
+        <code>z2ui5_cl_smp_app_452</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_452.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_452.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Navigation</h2>
+      <ul>
+      <li data-find="call and leave apps (nav_app_call) z2ui5_cl_smp_app_024 navigation nav_app_call nav_app_leave sub app stack call back">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_024">Call and Leave Apps (nav_app_call)</a>
+        <code>z2ui5_cl_smp_app_024</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_024.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_024.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="data loss protection on leaving (a,c) z2ui5_cl_smp_app_279 navigation dirty unsaved changes leave confirmation warning">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_279">Data Loss Protection on Leaving (A,C)</a>
+        <code>z2ui5_cl_smp_app_279</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_279.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_279.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="return data and events to the caller z2ui5_cl_smp_app_488 navigation r_data result get_app_prev return event payload">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_488">Return Data and Events to the Caller</a>
+        <code>z2ui5_cl_smp_app_488</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_488.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_488.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="uncaught error and error popup z2ui5_cl_smp_app_464 navigation exception dump error handling debugtool restart retry">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_464">Uncaught Error and Error Popup</a>
+        <code>z2ui5_cl_smp_app_464</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_464.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_464.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Nested View</h2>
+      <ul>
+      <li data-find="basic example (nest_view_display) z2ui5_cl_smp_app_065 nested view nest_view_display rerender model refresh sub view">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_065">Basic Example (nest_view_display)</a>
+        <code>z2ui5_cl_smp_app_065</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_065.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_065.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="embed another app&#39;s view z2ui5_cl_smp_app_104 nested view sub app class embed instantiate another app rtti">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_104">Embed Another App&#39;s View</a>
+        <code>z2ui5_cl_smp_app_104</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_104.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_104.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="master-detail with flexiblecolumnlayout z2ui5_cl_smp_app_097 nested view fcl master detail list report two column split">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_097">Master-Detail with FlexibleColumnLayout</a>
+        <code>z2ui5_cl_smp_app_097</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_097.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_097.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="three columns with flexiblecolumnlayout z2ui5_cl_smp_app_098 nested view fcl three column detail detail deep navigation">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_098">Three Columns with FlexibleColumnLayout</a>
+        <code>z2ui5_cl_smp_app_098</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_098.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_098.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Popover</h2>
+      <ul>
+      <li data-find="basic example with placement z2ui5_cl_smp_app_026 popover placement anchor button confirm cancel popover_display">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_026">Basic Example with Placement</a>
+        <code>z2ui5_cl_smp_app_026</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_026.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_026.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="open from a table row z2ui5_cl_smp_app_052 popover list report dynamicpage row link details table">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_052">Open from a Table Row</a>
+        <code>z2ui5_cl_smp_app_052</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_052.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_052.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="open together with the view build z2ui5_cl_smp_app_490 popover initial render one roundtrip anchor button">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_490">Open Together with the View Build</a>
+        <code>z2ui5_cl_smp_app_490</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_490.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_490.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="quickview contact card z2ui5_cl_smp_app_109 popover quickview contact card links grouped fields">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_109">QuickView Contact Card</a>
+        <code>z2ui5_cl_smp_app_109</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_109.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_109.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="select from a list z2ui5_cl_smp_app_081 popover list selection placement anchor">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_081">Select from a List</a>
+        <code>z2ui5_cl_smp_app_081</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_081.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_081.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="toggle by id (toggleby) (a) z2ui5_cl_smp_app_465 popover toggleby open close control_by_id whitelisted">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_465">Toggle by ID (toggleBy) (A)</a>
+        <code>z2ui5_cl_smp_app_465</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_465.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_465.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Popup</h2>
+      <ul>
+      <li data-find="dialog inside a dialog z2ui5_cl_smp_app_161 popup nested stack popup in popup second dialog">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_161">Dialog inside a Dialog</a>
+        <code>z2ui5_cl_smp_app_161</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_161.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_161.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="element binding to the selected row (a) z2ui5_cl_smp_app_470 popup element binding relative path aggregation dialog row">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_470">Element Binding to the Selected Row (A)</a>
+        <code>z2ui5_cl_smp_app_470</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_470.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_470.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="navigate between dialogs (navcontainer) (a) z2ui5_cl_smp_app_170 popup navcontainer dialog pages back forward">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_170">Navigate between Dialogs (NavContainer) (A)</a>
+        <code>z2ui5_cl_smp_app_170</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_170.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_170.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="value help: suggestions and f4 dialog z2ui5_cl_smp_app_009 popup f4 search help suggestion input dialog select">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_009">Value Help: Suggestions and F4 Dialog</a>
+        <code>z2ui5_cl_smp_app_009</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_009.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_009.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="ways to open a dialog (a) z2ui5_cl_smp_app_012 popup dialog sub app destroy rerender background view">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_012">Ways to Open a Dialog (A)</a>
+        <code>z2ui5_cl_smp_app_012</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_012.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_012.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Scroll</h2>
+      <ul>
+      <li data-find="scroll a control into view (a) z2ui5_cl_smp_app_363 scroll scroll_into_view control id validation jump">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_363">Scroll a Control into View (A)</a>
+        <code>z2ui5_cl_smp_app_363</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_363.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_363.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="scroll to a pixel position (a) z2ui5_cl_smp_app_362 scroll position pixel scroll_to restore refresh toolbar">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_362">Scroll to a Pixel Position (A)</a>
+        <code>z2ui5_cl_smp_app_362</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_362.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_362.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Table</h2>
+      <ul>
+      <li data-find="drag and drop rows (a) z2ui5_cl_smp_app_459 table dnd dragdropinfo reorder rows move">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_459">Drag and Drop Rows (A)</a>
+        <code>z2ui5_cl_smp_app_459</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_459.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_459.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="editable cells, add and delete rows z2ui5_cl_smp_app_011 table edit input add row delete multiselect toolbar">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_011">Editable Cells, Add and Delete Rows</a>
+        <code>z2ui5_cl_smp_app_011</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_011.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_011.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="filter rows in the backend z2ui5_cl_smp_app_045 table filter server side form growing where">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_045">Filter Rows in the Backend</a>
+        <code>z2ui5_cl_smp_app_045</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_045.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_045.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="large table with growing and scrollcontainer z2ui5_cl_smp_app_006 table growing 10000 rows sticky toolbar sort performance">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_006">Large Table with Growing and ScrollContainer</a>
+        <code>z2ui5_cl_smp_app_006</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_006.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_006.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="live search with parallel requests z2ui5_cl_smp_app_059 table live search parallel requests busy queue typing">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_059">Live Search with Parallel Requests</a>
+        <code>z2ui5_cl_smp_app_059</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_059.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_059.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="search in the backend (searchfield) z2ui5_cl_smp_app_053 table search go enter server side where">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_053">Search in the Backend (SearchField)</a>
+        <code>z2ui5_cl_smp_app_053</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_053.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_053.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="selection modes: single and multi select z2ui5_cl_smp_app_019 table selectionmode none single multi segmentedbutton checkbox">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_019">Selection Modes: Single and Multi Select</a>
+        <code>z2ui5_cl_smp_app_019</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_019.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_019.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Templating</h2>
+      <ul>
+      <li data-find="build columns dynamically (template:repeat) z2ui5_cl_smp_app_173 templating template repeat runtime generated columns if then else">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_173">Build Columns Dynamically (template:repeat)</a>
+        <code>z2ui5_cl_smp_app_173</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_173.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_173.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="dynamic content in a nested view z2ui5_cl_smp_app_176 templating template repeat runtime generated nested nest_view_display">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_176">Dynamic Content in a Nested View</a>
+        <code>z2ui5_cl_smp_app_176</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_176.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_176.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Timer</h2>
+      <ul>
+      <li data-find="progress indicator during a backend call (a) z2ui5_cl_smp_app_064 timer progressindicator busy wait long running backend">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_064">Progress Indicator during a Backend Call (A)</a>
+        <code>z2ui5_cl_smp_app_064</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_064.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_064.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="refresh the view every n seconds (a) z2ui5_cl_smp_app_028 timer interval polling auto refresh follow_up_action seconds">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_028">Refresh the View Every n Seconds (A)</a>
+        <code>z2ui5_cl_smp_app_028</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_028.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_028.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Tree</h2>
+      <ul>
+      <li data-find="drag and drop nodes (a,c) z2ui5_cl_smp_app_461 tree dnd move node hierarchy binding context">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_461">Drag and Drop Nodes (A,C)</a>
+        <code>z2ui5_cl_smp_app_461</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_461.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_461.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="editable nodes with customtreeitem (c) z2ui5_cl_smp_app_463 tree customtreeitem rename input binding write back">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_463">Editable Nodes with CustomTreeItem (C)</a>
+        <code>z2ui5_cl_smp_app_463</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_463.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_463.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="inside a dialog (c) z2ui5_cl_smp_app_462 tree popup expand state hierarchy nodes">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_462">Inside a Dialog (C)</a>
+        <code>z2ui5_cl_smp_app_462</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_462.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_462.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      <li data-find="nested abap table in a sap.m.tree z2ui5_cl_smp_app_460 tree hierarchy nodes nested json items">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_460">Nested ABAP Table in a sap.m.Tree</a>
+        <code>z2ui5_cl_smp_app_460</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_460.js" title="the JavaScript class this playground runs">JS</a><a class="src" href="https://github.com/abap2UI5/samples/blob/main/src/01/z2ui5_cl_smp_app_460.clas.abap" title="the ABAP original this sample was ported from">ABAP</a></span>
+      </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Not in the catalogue</h2>
+      <p class="note">Helper and sub-app classes the catalogue does not name. Some are meant to be started by another sample and report an error on their own.</p>
+      <ul>
+      <li data-find="z2ui5_cl_smp_app_000 z2ui5_cl_smp_app_000 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_000">z2ui5_cl_smp_app_000</a>
+        <code>z2ui5_cl_smp_app_000</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_000.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_020 z2ui5_cl_smp_app_020 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_020">z2ui5_cl_smp_app_020</a>
+        <code>z2ui5_cl_smp_app_020</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_020.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_025 z2ui5_cl_smp_app_025 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_025">z2ui5_cl_smp_app_025</a>
+        <code>z2ui5_cl_smp_app_025</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_025.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_105 z2ui5_cl_smp_app_105 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_105">z2ui5_cl_smp_app_105</a>
+        <code>z2ui5_cl_smp_app_105</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_105.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_112 z2ui5_cl_smp_app_112 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_112">z2ui5_cl_smp_app_112</a>
+        <code>z2ui5_cl_smp_app_112</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_112.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_469 z2ui5_cl_smp_app_469 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_469">z2ui5_cl_smp_app_469</a>
+        <code>z2ui5_cl_smp_app_469</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_469.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      <li data-find="z2ui5_cl_smp_app_489 z2ui5_cl_smp_app_489 not in the catalogue ">
+        <a class="run" href="./index.html?app_start=z2ui5_cl_smp_app_489">z2ui5_cl_smp_app_489</a>
+        <code>z2ui5_cl_smp_app_489</code>
+        <span class="links"><a class="src" href="https://github.com/cap2UI5/cap2UI5/blob/main/core/srv/app/samples/z2ui5_cl_smp_app_489.js" title="the JavaScript class this playground runs">JS</a></span>
+      </li>
+      </ul>
+    </section>
+    <p id="empty" hidden>No sample matches the filter.</p>
+  </main>
+  <script>
+    // Filtering is the one thing this page does; it stays a plain listing
+    // with working links when the script never runs.
+    var q = document.getElementById("q");
+    var items = Array.prototype.slice.call(document.querySelectorAll("li[data-find]"));
+    var empty = document.getElementById("empty");
+    q.addEventListener("input", function () {
+      var needle = q.value.trim().toLowerCase();
+      var hits = 0;
+      items.forEach(function (li) {
+        var show = !needle || li.dataset.find.indexOf(needle) !== -1;
+        li.hidden = !show;
+        if (show) hits++;
+      });
+      document.querySelectorAll("main section").forEach(function (s) {
+        s.hidden = !s.querySelector("li:not([hidden])");
+      });
+      empty.hidden = hits > 0;
+    });
+  </script>
+</body>
+</html>
